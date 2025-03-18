@@ -1,0 +1,40 @@
+* {
+	font-family: Montserrat, Verdana, sans-serif;
+}
+
+body {
+	background-color: #fff;
+}
+.btn-home {
+	color: #000;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+h1 {
+	color: #080708;
+	background-color: #fdca40;
+	text-align: center;
+}
+
+h2 {
+	color: #000;
+	font-size: 20px;
+	text-align: center;
+}
+
+h3 {
+	color: #fff;
+	background-color: #fe7f2d;
+	font-size: 30px;
+}
+img {
+	height: 300px;
+	width: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+ul li {
+	list-style-type: none;
+}

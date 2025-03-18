@@ -1,0 +1,35 @@
+* {
+	font-family: Montserrat, Verdana, sans-serif;
+}
+
+body {
+	margin: 0px;
+	background-color: #ffffff;
+}
+
+h1 {
+	color: #000;
+	text-align: center;
+}
+
+.h1-styled {
+	color: #ffc116;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	background-color: #fe7f2d;
+}
+
+a,
+ul {
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
