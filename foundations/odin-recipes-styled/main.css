@@ -1,35 +1,81 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
 * {
+	margin: 0;
+	padding: 0;
 	font-family: Montserrat, Verdana, sans-serif;
 }
 
 body {
-	margin: 0px;
-	background-color: #ffffff;
+	min-height: 100vh;
+	background-color: #fff;
 }
 
-h1 {
-	color: #000;
-	text-align: center;
-}
-
-.h1-styled {
-	color: #ffc116;
-}
-
-.container {
+header {
+	height: 70px;
+	background-color: #2b1203;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	background-color: #fe7f2d;
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
 }
 
-a,
-ul {
-	color: #fff;
+.btn-home {
+	color: #fdca40;
+	height: 50px;
 	text-decoration: none;
-	font-size: 16px;
+	font-weight: 700;
+	font-size: 20px;
+	padding: 20px 30px;
 }
 
-a:hover {
+.btn-home:hover {
 	text-decoration: underline;
+}
+
+.main-container {
+	width: 600px;
+	margin: 100px auto;
+	display: flex;
+	justify-content: center;
+}
+
+.card {
+	width: 200px;
+	background-color: #f0e6d6;
+	padding: 20px;
+	margin: 20px;
+	display: inline-block;
+}
+.card:hover {
+	background-color: #fdca40;
+}
+
+.link-to-recipe {
+	font-size: 30px;
+	font-weight: 600;
+	text-decoration: underline;
+	color: #2b1203;
+}
+
+.small-img {
+	margin-top: 15px;
+	width: 150px;
+	height: auto;
+	display: block;
+}
+
+li:hover {
+	background-color: #fdca40;
 }
