@@ -17,6 +17,7 @@ html {
 body {
 	min-height: 100vh;
 	background-color: #fff;
+	padding-top: 70px; /* Add padding-top to account for the fixed header */
 }
 
 header {
@@ -44,38 +45,42 @@ header {
 	text-decoration: underline;
 }
 
-.main-container {
-	width: 600px;
-	margin: 100px auto;
+.container {
+	width: 700px;
+	margin: 50px auto;
 	display: flex;
 	justify-content: center;
 }
 
 .card {
-	width: 200px;
 	background-color: #f0e6d6;
-	padding: 20px;
 	margin: 20px;
-	display: inline-block;
-}
-.card:hover {
-	background-color: #fdca40;
 }
 
 .link-to-recipe {
+	color: #2b1203;
+	display: block;
+	width: 200px;
+	padding: 30px 20px;
+}
+
+.link-to-recipe:hover {
+	background-color: #fdca40;
+}
+
+.recipe-title {
+	width: 150px;
+	text-align: left;
 	font-size: 30px;
 	font-weight: 600;
-	text-decoration: underline;
-	color: #2b1203;
+	margin: 0px auto 20px;
 }
 
 .small-img {
-	margin-top: 15px;
-	width: 150px;
-	height: auto;
 	display: block;
+	border: 2px solid #2b1203;
+	width: 150px;
+	height: 150px;
+	margin: 0px auto;
 }
 
-li:hover {
-	background-color: #fdca40;
-}
