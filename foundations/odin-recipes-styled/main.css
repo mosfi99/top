@@ -23,7 +23,7 @@ body {
 
 header {
 	min-height: 70px;
-	padding: 0 20px;
+	padding: 0 40px;
 	background-color: #2b1203;
 	display: flex;
 	align-items: center;
@@ -40,7 +40,6 @@ header {
 	font-weight: 700;
 	font-size: 20px;
 	padding: 10px 20px;
-	margin: 20px;
 }
 
 .btn-home:hover {
@@ -49,7 +48,7 @@ header {
 
 .container {
 	width: 90%;
-  max-width: 630px;
+	max-width: 630px;
 	margin: 50px auto;
 }
 
@@ -94,12 +93,12 @@ header {
 	margin: 0px auto;
 	border-radius: 10px;
 	background-color: #835234;
-	color:#fff;
+	color: #fff;
 }
 
 .link-to-recipe:hover {
 	background-color: #f5c21a;
-  color: #2b1203;
+	color: #2b1203;
 }
 
 .recipe-title {
@@ -107,15 +106,15 @@ header {
 	font-size: 30px;
 	font-weight: 600;
 	text-transform: capitalize;
-	margin: 8px
+	margin: 8px;
 }
 
-.recipe-description{
+.recipe-description {
 	max-width: 400px;
 	text-align: left;
 	font-size: 15px;
 	font-weight: 500;
-	margin: 15px 10px
+	margin: 15px 10px;
 }
 
 ul {
@@ -132,14 +131,14 @@ li {
 	margin: 0px 10px 0px;
 }
 
-h2{
+h2 {
 	text-align: center;
 	font-size: 15px;
 	margin-bottom: 5px;
 	font-weight: 600;
 }
 
-li p{
+li p {
 	font-size: 12px;
 	font-weight: 500;
 }
