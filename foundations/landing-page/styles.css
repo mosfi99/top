@@ -1,0 +1,179 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Space Grotesk', Verdana, sans-serif;
+}
+img {
+	width: 350px;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: #1f2937;
+}
+
+header,
+.content-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.small-header,
+.big-header,
+#keyboards-container {
+	/* is there any other way to have a responsive right and left padding for the whole content? */
+	width: 80%;
+}
+
+.small-header {
+	height: 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 70px;
+}
+
+.small-header .logo {
+	height: 60px;
+	width: auto;
+}
+
+.small-header ul {
+	list-style: none;
+	display: flex;
+	gap: 40px;
+}
+
+.small-header ul li a {
+	text-decoration: none;
+	font-size: 18px;
+	color: #e5e7eb;
+}
+.small-header ul li a:hover {
+	text-decoration: underline;
+}
+
+.big-header {
+	display: flex;
+	justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.big-header .text {
+	display: flex;
+	flex-direction: column;
+	max-width: 330px;
+}
+
+.big-header .text h1 {
+	color: #f9faf8;
+	font-size: 50px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.big-header .text p {
+	font-size: 18px;
+	color: #e5e7eb;
+	margin-bottom: 15px;
+}
+
+.big-header .text .get-button {
+	background-color: #3882f6;
+	border-radius: 10px;
+	padding: 3px 20px;
+	color: #e5e7eb;
+	text-decoration: none;
+	font-weight: 500;
+	margin-right: auto;
+}
+.big-header .text .get-button:hover {
+	background-color: #e5e7eb;
+	color: #3882f6;
+}
+
+.big-header .header-image {
+	width: auto;
+	height: 250px;
+}
+
+#keyboards-container {
+}
+
+#keyboards-container h1 {
+  color: #f9faf8;
+	text-align: center;
+  font-size: 45px;
+	margin-bottom: 40px;
+}
+
+.cards-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card {
+	max-width: 190px;
+}
+
+.card .card-image {
+	height: 190px;
+	width: auto;
+	border: 2px#3882f6 solid;
+	border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.card .img-description {
+	color: #e5e7eb;
+  max-width: 185px;
+  padding: 0 10px;
+  text-align: center;
+
+}
+
+#info-container {
+}
+
+#info-container h1 {
+}
+
+#info-container p {
+}
+
+#shipping-container {
+}
+
+.shipping-info {
+}
+
+.shipping-info .shipping-text {
+}
+
+.shipping-info .shipping-text h1 {
+}
+
+.shipping-info .shipping-text p {
+}
+
+.shipping-info .get-button {
+}
+
+footer {
+}
+
+footer .footer-text {
+}
