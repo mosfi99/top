@@ -1,3 +1,4 @@
+/* Global Styles */
 html {
 	box-sizing: border-box;
 }
@@ -8,172 +9,220 @@ html {
 	box-sizing: inherit;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	font-family: 'Space Grotesk', Verdana, sans-serif;
-}
-img {
-	width: 350px;
-}
-
 body {
+	margin: 0;
 	display: flex;
 	flex-direction: column;
 	background-color: #1f2937;
+	font-family: 'Space Grotesk', Verdana, sans-serif;
 }
 
-header,
-.content-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.small-header,
-.big-header,
-#keyboards-container {
-	/* is there any other way to have a responsive right and left padding for the whole content? */
+/* Layout Containers */
+.layout-container {
+	margin: auto;
 	width: 80%;
 }
 
+/* Header Styles */
 .small-header {
 	height: 70px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap;
 	margin-bottom: 70px;
 }
 
-.small-header .logo {
+.logo {
 	height: 60px;
 	width: auto;
 }
 
-.small-header ul {
+.nav-list {
 	list-style: none;
 	display: flex;
 	gap: 40px;
 }
 
-.small-header ul li a {
+.nav-link {
 	text-decoration: none;
 	font-size: 18px;
 	color: #e5e7eb;
 }
-.small-header ul li a:hover {
+
+.nav-link:hover {
 	text-decoration: underline;
 }
 
 .big-header {
 	display: flex;
 	justify-content: space-between;
-  margin-bottom: 100px;
+	flex-wrap: wrap;
+	gap: 15px;
+	margin-bottom: 100px;
 }
 
-.big-header .text {
+.big-header__text {
 	display: flex;
 	flex-direction: column;
-	max-width: 330px;
+	flex: 0 1 350px;
+	justify-content: center;
+	margin: auto;
 }
 
-.big-header .text h1 {
+.big-header__text h1 {
 	color: #f9faf8;
-	font-size: 50px;
+	font-size: 52px;
 	font-weight: 700;
 	margin-bottom: 20px;
 }
 
-.big-header .text p {
+.big-header__text p {
 	font-size: 18px;
 	color: #e5e7eb;
 	margin-bottom: 15px;
 }
 
-.big-header .text .get-button {
+.big-header__image {
+	max-width: 380px;
+	max-height: 213px;
+	flex: 0 1 auto;
+	margin: auto;
+}
+
+/* Button Styles */
+.button {
+	font-size: 16px;
 	background-color: #3882f6;
 	border-radius: 10px;
 	padding: 3px 20px;
-	color: #e5e7eb;
+	color: #fff;
 	text-decoration: none;
 	font-weight: 500;
-	margin-right: auto;
+	min-width: 115px;
+	align-self: flex-end;
 }
-.big-header .text .get-button:hover {
+
+.button:hover {
 	background-color: #e5e7eb;
 	color: #3882f6;
 }
 
-.big-header .header-image {
-	width: auto;
-	height: 250px;
+.shipping .button:hover {
+	background-color: #1f2937;
+	color: #fff;
 }
 
-#keyboards-container {
+/* Keyboards Section */
+.keyboards-container {
+	margin-bottom: 50px;
 }
 
-#keyboards-container h1 {
-  color: #f9faf8;
+.keyboards-container h1 {
+	color: #f9faf8;
 	text-align: center;
-  font-size: 45px;
+	font-size: 44px;
 	margin-bottom: 40px;
 }
 
 .cards-container {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 30px;
+	padding: 30px;
+  max-width: 900px;
+  margin: auto;
 }
 
 .card {
 	max-width: 190px;
 }
 
-.card .card-image {
-	height: 190px;
+.card__image {
+	height: 170px;
 	width: auto;
-	border: 2px#3882f6 solid;
+	border: 2px #4EA6A7 solid;
 	border-radius: 10px;
-  margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
-.card .img-description {
+.card__image-description {
 	color: #e5e7eb;
-  max-width: 185px;
-  padding: 0 10px;
-  text-align: center;
-
+	font-size: 14px;
+	max-width: 170px;
+	padding: 0 10px;
+	text-align: center;
 }
 
-#info-container {
+/* Info Section */
+.info-container {
+	color: #f9faf8;
+	text-align: center;
+	margin: auto;
 }
 
-#info-container h1 {
+.info-container h1 {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 32px;
 }
 
-#info-container p {
+.info-container p {
+	margin: auto;
+	text-align: center;
+	max-width: 800px;
+	font-size: 18px;
 }
 
-#shipping-container {
+/* Shipping Section */
+.shipping-container {
+	max-width: 850px;
+	display: flex;
+	background-color: #fff;
+	border-radius: 10px;
+	margin: 50px auto;
+	padding: 50px;
 }
 
-.shipping-info {
+.shipping {
+	display: flex;
+	gap: 20px;
 }
 
-.shipping-info .shipping-text {
+.shipping__text {
+	color: #1f2937;
 }
 
-.shipping-info .shipping-text h1 {
+.shipping__text h1 {
+	font-size: 32px;
+	font-weight: 700;
+	margin: 0 0 15px 0;
 }
 
-.shipping-info .shipping-text p {
+.shipping__text p {
+	font-size: 16px;
+	margin-bottom: 15px;
+	max-width: 600px;
 }
 
-.shipping-info .get-button {
+.shipping__list {
+	list-style: inside;
+	margin: 0 15px;
+	padding: 0;
+	text-align: left;
+	max-width: 600px;
+	color: #1f2937;
 }
 
-footer {
+.shipping__list-item {
+	margin-bottom: 10px;
+	font-size: 14px;
 }
 
-footer .footer-text {
+/* Footer Styles */
+.footer__text {
+	font-size: 14px;
+	text-align: center;
+	padding: 20px 0;
+	color: #e5e7eb;
 }

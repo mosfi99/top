@@ -12,87 +12,110 @@
 			rel="stylesheet" />
 	</head>
 	<body>
-		<header>
+		<header class="layout-container">
 			<div class="small-header">
 				<img
 					src="../landing-page/images/logo.png"
 					alt="Electric keyboard icons created by Vector Squad - Flaticon."
 					class="logo" />
-				<ul>
-					<li><a href="#keyboards-container">Our keyboards</a></li>
-					<li><a href="#info-container">Info</a></li>
-					<li><a href="#shipping-container">Shipping</a></li>
+				<ul class="nav-list">
+					<li>
+						<a href="#keyboards-container" class="nav-link">Our keyboards</a>
+					</li>
+					<li><a href="#info-container" class="nav-link">Info</a></li>
+					<li><a href="#shipping-container" class="nav-link">Shipping</a></li>
 				</ul>
 			</div>
 			<div class="big-header">
-				<div class="text">
+				<div class="big-header__text">
 					<h1>Elevate Your Typing Game</h1>
 					<p>Custom mechanical keyboards for enthusiasts and pros.</p>
-					<a href="#shipping-container" class="get-button">Get yours</a>
+					<a href="#shipping-container" class="button">Get yours</a>
 				</div>
 				<img
-					class="header-image"
+					class="big-header__image"
 					src="../landing-page/images/dark-keyboard.jpg"
 					alt="Dark-blue mechanical keyboard" />
 			</div>
 		</header>
-		<div class="content-container">
-			<div id="keyboards-container">
-				<h1>Our keyboards</h1>
-				<div class="cards-container">
-          <div class="card">
-            <img
-              src="../landing-page/images/keychron-keyboard.jpg"
-              alt="Keychron mechanical keyboard"
-              class="card-image" />
-            <p class="img-description">Keychron V2: Sleek design, RGB lighting, and durable build.</p>
-            </div>
-            <div class="card">
-            <img
-              src="../landing-page/images/dark-keyboard-with-lights.jpg"
-              alt="Dark mechanical keyboard with RGB lights"
-              class="card-image" />
-            <p class="img-description">Low-profile keyboard with black aesthetics and RGB lighting.</p>
-            </div>
-            <div class="card">
-            <img
-              src="../landing-page/images/layouts-keyoards.jpg"
-              alt="Two mechanical keyboards side by side"
-              class="card-image" />
-            <p class="img-description">Choose from compact to full-size layouts for any need.</p>
-            </div>
-            <div class="card">
-            <img
-              src="../landing-page/images/colorful-keyboard.jpg"
-              alt="Colorful mechanical keyboard with vibrant keycaps"
-              class="card-image" />
-            <p class="img-description">Colorful keyboard with room for customization and modding.</p>
-          </div>
-					</div>
+		<div id="keyboards-container" class="keyboards-container layout-container">
+			<h1>Our Keyboards</h1>
+			<div class="cards-container">
+				<div class="card">
+					<img
+						src="../landing-page/images/keychron-keyboard.jpg"
+						alt="Keychron mechanical keyboard"
+						class="card__image" />
+					<p class="card__image-description">
+						Keychron V2: Sleek design, RGB lighting, and durable build.
+					</p>
 				</div>
-			</div>
-			<div id="info-container">
-				<h1>Why mechanical?</h1>
-				<p>
-					Mechanical keyboards offer superior durability, tactile feedback, and
-					customization compared to regular keyboards. They are built with
-					individual mechanical switches for each key, providing a more
-					satisfying typing experience. Additionally, they are highly
-					customizable, allowing users to choose keycaps, switches, and layouts
-					that suit their preferences. Whether for gaming, programming, or
-					general use, mechanical keyboards enhance productivity and comfort.
-				</p>
-			</div>
-			<div id="shipping-container">
-				<div class="shipping-info">
-					<div class="shipping-text">
-						<h1>we ship world wide</h1>
-						<p>to these places in these times, blabla</p>
-					</div>
-					<a href="#" class="get-button">Get yours</a>
+				<div class="card">
+					<img
+						src="../landing-page/images/dark-keyboard-with-lights.jpg"
+						alt="Dark mechanical keyboard with RGB lights"
+						class="card__image" />
+					<p class="card__image-description">
+						Low-profile keyboard with black aesthetics and RGB lighting.
+					</p>
+				</div>
+				<div class="card">
+					<img
+						src="../landing-page/images/layouts-keyoards.jpg"
+						alt="Two mechanical keyboards side by side"
+						class="card__image" />
+					<p class="card__image-description">
+						Choose from compact to full-size layouts for any need.
+					</p>
+				</div>
+				<div class="card">
+					<img
+						src="../landing-page/images/colorful-keyboard.jpg"
+						alt="Colorful mechanical keyboard with vibrant keycaps"
+						class="card__image" />
+					<p class="card__image-description">
+						Colorful keyboard with room for customization and modding.
+					</p>
 				</div>
 			</div>
 		</div>
-		<footer><p class="footer-text">Copyright &copy; mosfi99</p></footer>
+		<div id="info-container" class="info-container">
+			<h1>Why mechanical?</h1>
+			<p>
+				Mechanical keyboards offer superior durability, tactile feedback, and
+				customization compared to regular keyboards. They are built with
+				individual mechanical switches for each key, providing a more satisfying
+				typing experience. Additionally, they are highly customizable, allowing
+				users to choose keycaps, switches, and layouts that suit their
+				preferences. Whether for gaming, programming, or general use, mechanical
+				keyboards enhance productivity and comfort.
+			</p>
+		</div>
+		<div id="shipping-container" class="shipping-container">
+			<div class="shipping">
+				<div class="shipping__text">
+					<h1>We Ship Worldwide</h1>
+					<p>
+						Enjoy fast and reliable shipping to your location. We ensure that
+						your keyboard reaches you in perfect condition, no matter where you
+						are.
+					</p>
+					<p>Here are the conditions:</p>
+					<ul class="shipping__list">
+						<li class="shipping__list-item">
+							Shipping times may vary depending on your region.
+						</li>
+						<li class="shipping__list-item">
+							Customs fees and import taxes are the responsibility of the buyer.
+						</li>
+						<li class="shipping__list-item">
+							Free shipping on orders over $100.
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="button">Get yours</a>
+			</div>
+		</div>
+		<footer><p class="footer__text">Copyright &copy; mosfi99</p></footer>
 	</body>
 </html>
