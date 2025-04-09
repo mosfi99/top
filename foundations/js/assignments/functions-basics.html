@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Function Basics</title>
+	</head>
+	<body style="background-color: black">
+		<h1 style="color: azure">Function Basics :)</h1>
+		<script>
+			function add7(n) {
+				return console.log(n + 7);
+			}
+			add7(1); // 8
+
+			function multiply(n1, n2) {
+				return console.log(n1 * n2);
+			}
+			multiply(2, 5); // 10
+
+			function capitalize(string) {
+				return console.log(
+					string[0].toUpperCase() + string.slice(1).toLowerCase()
+				);
+			}
+			capitalize('does it work?'); // Does it work?
+			capitalize('DOES IT WORK?'); // Does it work?
+			capitalize('dOeS iT WorK?'); // Does it work?
+
+			// arrow function
+			const lastLetter = (str) => console.log(str[str.length - 1]);
+			lastLetter('Hello'); // o
+
+			const fun = () =>
+				console.log('It is very fun to get back to JavaScript! :)');
+			fun();
+
+
+      
+		</script>
+	</body>
+</html>
