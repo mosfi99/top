@@ -5,7 +5,7 @@
 
 // Goal: rock paper scissors game
 // Interface: the browser terminal
-// Players: user vs. computer
+// Players: human vs. computer
 
 let humanScore = 0;
 let computerScore = 0;
@@ -19,11 +19,11 @@ function getComputerChoice() {
 	let choice;
 
 	if (num < 0.33) {
-		choice = 'Rock';
+		choice = 'rock';
 	} else if (num >= 0.33 && num <= 0.66) {
-		choice = 'Paper';
+		choice = 'paper';
 	} else {
-		choice = 'Scissors';
+		choice = 'scissors';
 	}
 	return choice;
 }
@@ -32,4 +32,25 @@ function getHumanChoice() {
 	const choice = prompt(`Your turn:
   Rock, Paper or Scissors?`);
 	return choice;
+}
+
+function playRound(computerChoice, humanChoice) {
+	const computer = computerChoice;
+	const human = humanChoice.toLowerCase();
+
+	if (computer === human) {
+		console.log(`It's a tie`);
+	} else if (
+		(human === 'rock' && computer === 'scissors') ||
+		(human === 'paper' && computer === 'rock') ||
+		(human === 'scissors' && computer === 'paper')
+	) {
+		console.log(
+			`Human wins, ${human.toUpperCase()} beats ${computer.toUpperCase()}!`
+		);
+	} else {
+		console.log(
+			`Computer wins, ${computer.toUpperCase()} beats ${human.toUpperCase()}!`
+		);
+	}
 }
