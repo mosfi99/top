@@ -1,4 +1,4 @@
-https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
+// https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
 
 // This is part of The Odin Project Foundations Curriculum, where the student starts to learn JS,
 // and as arrays have not being covered yet, it will be solve without the use of them.
@@ -18,9 +18,10 @@ function getComputerChoice() {
 	const num = getRandomNum();
 	let choice;
 
-  if (num < 0.33) {
+	if (num < 0.33) {
 		choice = 'Rock';
 	} else if (num >= 0.33 && num <= 0.66) {
+		choice = 'Paper';
 	} else {
 		choice = 'Scissors';
 	}
