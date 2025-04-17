@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>dom theory</title>
+	</head>
+	<body>
+		<h1>THE TITLE OF YOUR WEBPAGE</h1>
+		<div id="container"></div>
+		<!-- EVENTS -->
+		<!-- method 1: inline, not good -->
+		<button onclick="alert(' Method 1')">Click Me</button>
+
+		<!-- method 2 -->
+		<button id="btn">Click Me</button>
+
+		<!-- method 3-->
+		<button id="btn-method3">Click Me Too</button>
+
+		<!-- events with functions -->
+		<button id="btn-baby">CLICK ME BABY</button>
+		<button id="btn-console">CLICK ME & CHECK THE CONSOLE</button>
+
+    <!-- Attaching listeners to groups of nodes -->
+		<div id="container">
+			<button id="one">Click Me</button>
+			<button id="two">Click Me</button>
+			<button id="three">Click Me</button>
+		</div>
+
+		<script defer src="./script.js"></script>
+	</body>
+</html>
