@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: rgb(36, 36, 78);
+	color: white;
+	font-family: consolas;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(21, 21, 44, 0.5);
+	height: 100px;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+.results-info,
+.choice-info {
+	font-size: 20px;
+}
+
+.results-container {
+  font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
+
+.choice-card {
+	border: 1px solid;
+	padding: 20px;
+}
+
+.player-choice,
+.computer-choice {
+	font-size: 75px;
+	margin: 0;
+}
+
+.choices {
+	background-color: rgba(133, 133, 133, 0.212);
+	border-radius: 6px;
+	border: 0;
+	padding: 25px;
+	margin: 0 20px;
+	font-size: 70px;
+}
+
+.choices:hover {
+	background-color: rgba(255, 255, 255, 0.212);
+}

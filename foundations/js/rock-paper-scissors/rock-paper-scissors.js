@@ -1,11 +1,75 @@
-// https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
-
-// This is part of The Odin Project Foundations Curriculum, where the student starts to learn JS,
-// and as arrays have not being covered yet, it will be solve without the use of them.
+// This is part of The Odin Project Foundations Curriculum, where the student starts to learn JS, and the DOM
+// https://www.theodinproject.com/lessons/foundations-rock-paper-scissors & https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors
 
 // Goal: rock paper scissors game
-// Interface: the browser terminal
-// Players: human vs. computer
+// Interface: the DOM
+// Players: player vs. computer
+
+// TO-DO:
+// move gameOver logic inside playRound, so that when it reaches 5 the resultDisplay is the game over message
+
+// use arrays for computer choice system
+
+// improve UI to show who won at the end
+
+// FUTURE TO-DO:
+// Make an option to play against another player locally
+
+// query selectors
+const choiceButtons = document.querySelectorAll('.choices');
+const playerChoiceDisplay = document.querySelector('.player-choice');
+const computerChoiceDisplay = document.querySelector('.computer-choice');
+const playerScoreDisplay = document.querySelector('.player-score');
+const computerScoreDisplay = document.querySelector('.computer-score');
+const resultsInfo = document.querySelector('.results-info');
+const choiceInfo = document.querySelector('.choice-info');
+
+// logic variables
+let playerScore = 0;
+let computerScore = 0;
+let i = 0;
+
+choiceButtons.forEach((btn) => {
+	btn.addEventListener('click', () => {
+		// while game is on, game over returns false
+		// not + false = true
+		// once game over is true
+		// not + true = false, the game stops
+		if (!gameOver()) playRound(btn);
+	});
+});
+
+// will return false until 5 points are reached.
+function gameOver() {
+	if (playerScore === 5 || computerScore === 5) {
+		if (playerScore > computerScore) {
+			resultsInfo.textContent = `Game Over! PLAYER wins ${playerScore} against ${computerScore}`;
+		} else {
+			resultsInfo.textContent = `Game Over! COMPUTER wins ${computerScore} against ${playerScore}`;
+		}
+		return true;
+	}
+	return false;
+}
+
+function getPlayerChoice(btn) {
+	let playerChoice = btn.textContent;
+	switch (playerChoice) {
+		case '✊':
+			playerChoice = 'rock';
+			break;
+		case '✋':
+			playerChoice = 'paper';
+			break;
+		case '✌️':
+			playerChoice = 'scissors';
+			break;
+		default:
+			break;
+	}
+	playerChoiceDisplay.textContent = getSymbol(playerChoice);
+	return playerChoice;
+}
 
 function getComputerChoice() {
 	const num = Math.random().toPrecision(2);
@@ -18,71 +82,48 @@ function getComputerChoice() {
 	} else {
 		choice = 'scissors';
 	}
+	computerChoiceDisplay.textContent = getSymbol(choice);
 	return choice;
 }
 
-function getHumanChoice() {
-	const choice = prompt(`Your turn: Rock, Paper or Scissors?`);
-	return choice;
+function getSymbol(choice) {
+	let symbol = '';
+	switch (choice) {
+		case 'rock':
+			symbol = '✊';
+			break;
+		case 'paper':
+			symbol = '✋';
+			break;
+		case 'scissors':
+			symbol = '✌️';
+			break;
+		default:
+			break;
+	}
+	return symbol;
 }
 
-function playGame() {
-	let humanScore = 0;
-	let computerScore = 0;
-	let i = 0;
+function playRound(btn) {
+	const computer = getComputerChoice();
+	const player = getPlayerChoice(btn);
 
-	function playRound() {
-		const computer = getComputerChoice();
-		const human = getHumanChoice().toLowerCase();
-
-		if (computer === human) {
-			console.log(`It's a tie`);
-			logScores();
-		} else if (
-			(human === 'rock' && computer === 'scissors') ||
-			(human === 'paper' && computer === 'rock') ||
-			(human === 'scissors' && computer === 'paper')
-		) {
-			console.log(
-				`Human wins, ${human.toUpperCase()} beats ${computer.toUpperCase()}!`
-			);
-			humanScore++;
-			logScores();
-		} else {
-			console.log(
-				`Computer wins, ${computer.toUpperCase()} beats ${human.toUpperCase()}!`
-			);
-			computerScore++;
-			logScores();
-		}
-	}
-
-	function logScores() {
-		console.log(`Human score: ${humanScore}`);
-		console.log(`Computer score: ${computerScore}`);
-		console.log(`	`);
-	}
-
-	while (i < 5) {
-		++i;
-		console.log(`Turn ${i}/5`);
-		playRound();
-	}
-
-	if (i === 5) {
-		if (humanScore === computerScore) {
-			console.log(`Game over. It's a tie.`);
-			logScores();
-		} else if (humanScore > computerScore) {
-			console.log(
-				`Game over. HUMAN wins ${humanScore} against ${computerScore}`
-			);
-		} else {
-			console.log(
-				`Game over. COMPUTER wins ${computerScore} against ${humanScore}`
-			);
-		}
+	if (computer === player) {
+		resultsInfo.textContent = `It's a tie`;
+		choiceInfo.textContent = `...`;
+	} else if (
+		(player === 'rock' && computer === 'scissors') ||
+		(player === 'paper' && computer === 'rock') ||
+		(player === 'scissors' && computer === 'paper')
+	) {
+		playerScore++;
+		playerScoreDisplay.textContent = `Score: ${playerScore}`;
+		resultsInfo.textContent = 'Player scores!';
+		choiceInfo.textContent = `${player.toUpperCase()} beats ${computer.toUpperCase()}`;
+	} else {
+		computerScore++;
+		computerScoreDisplay.textContent = `Score: ${computerScore}`;
+		resultsInfo.textContent = 'Computer scores!';
+		choiceInfo.textContent = `${computer.toUpperCase()} beats ${player.toUpperCase()}`;
 	}
 }
-
-playGame();

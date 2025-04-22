@@ -3,9 +3,34 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<link rel="stylesheet" href="./style.css" />
+		<title>RPS</title>
 	</head>
-	<body style="background-color: black">
+	<body>
+		<header><h1>ROCK PAPER SCISSORS</h1></header>
+
+			<div class="results-info">First to score 5 points wins the game</div>
+			<div class="results-container">
+				<div class="choice-card player">
+					<p>PLAYER</p>
+					<p class="player-choice">❔</p>
+					<p class="player-score">Score: 0</p>
+				</div>
+				<div class="versus">VS.</div>
+				<div class="choice-card computer">
+					<p>COMPUTER</p>
+					<p class="computer-choice">❔</p>
+					<p class="computer-score">Score: 0</p>
+				</div>
+			</div>
+			<div class="choice-info">Choose to start the game:</div>
+			<div class="buttons-cointainer">
+				<button class="choices" class="rock">✊</button>
+				<button class="choices" class="paper">✋</button>
+				<button class="choices" class="scissors">✌️</button>
+			</div>
+	
+
 		<script src="./rock-paper-scissors.js"></script>
 	</body>
 </html>
