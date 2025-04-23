@@ -8,20 +8,38 @@
 
 body {
 	background: rgb(36, 36, 78);
-	color: white;
+	color: rgb(255, 255, 255);
 	font-family: consolas;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh; /* keeps footer at the bottom*/
 	gap: 35px;
 }
 
 header {
+	height: 100px;
+}
+
+header,
+footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background: rgba(21, 21, 44, 0.5);
-	height: 100px;
+}
+
+footer {
+	margin-top: auto; /* stays at the bottom*/
+	height: 50px;
+}
+
+.main-container {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+	padding: 10px;
 }
 
 h1 {
@@ -34,7 +52,7 @@ h1 {
 }
 
 .results-container {
-  font-size: 18px;
+	font-size: 18px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -42,8 +60,9 @@ h1 {
 }
 
 .choice-card {
-	border: 1px solid;
 	padding: 20px;
+	border-radius: 6px;
+	background: rgba(21, 21, 44, 0.5);
 }
 
 .player-choice,
@@ -54,13 +73,22 @@ h1 {
 
 .choices {
 	background-color: rgba(133, 133, 133, 0.212);
-	border-radius: 6px;
+	border-radius: 100px;
 	border: 0;
-	padding: 25px;
+	padding: 20px;
 	margin: 0 20px;
 	font-size: 70px;
 }
 
 .choices:hover {
 	background-color: rgba(255, 255, 255, 0.212);
+}
+
+footer a {
+	color: rgb(109, 158, 255);
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: #ffffff;
 }
