@@ -5,15 +5,12 @@
 // Interface: the DOM
 // Players: player vs. computer
 
-// TO-DO:
-// move gameOver logic inside playRound, so that when it reaches 5 the resultDisplay is the game over message
-
-// use arrays for computer choice system
-
-// improve UI to show who won at the end
-
 // FUTURE TO-DO:
+// improve UI:
+// - when a P or C choice wins highlight the card
+// - change alert to a modal display
 // Make an option to play against another player locally
+// Make it responsive for mobile devices
 
 // query selectors
 const choiceButtons = document.querySelectorAll('.choices');
@@ -24,6 +21,14 @@ const computerScoreDisplay = document.querySelector('.computer-score');
 const resultsInfo = document.querySelector('.results-info');
 const choiceInfo = document.querySelector('.choice-info');
 
+// variables to restore the game to original state
+const playerChoiceDisplayOriginal = playerChoiceDisplay.textContent;
+const computerChoiceDisplayOriginal = computerChoiceDisplay.textContent;
+const playerScoreDisplayOriginal = playerScoreDisplay.textContent;
+const computerScoreDisplayOriginal = computerScoreDisplay.textContent;
+const resultsInfoOriginal = resultsInfo.textContent;
+const choiceInfoOriginal = choiceInfo.textContent;
+
 // logic variables
 let playerScore = 0;
 let computerScore = 0;
@@ -31,25 +36,62 @@ let i = 0;
 
 choiceButtons.forEach((btn) => {
 	btn.addEventListener('click', () => {
-		// while game is on, game over returns false
-		// not + false = true
-		// once game over is true
-		// not + true = false, the game stops
-		if (!gameOver()) playRound(btn);
+		playRound(btn);
 	});
 });
 
 // will return false until 5 points are reached.
 function gameOver() {
-	if (playerScore === 5 || computerScore === 5) {
-		if (playerScore > computerScore) {
-			resultsInfo.textContent = `Game Over! PLAYER wins ${playerScore} against ${computerScore}`;
-		} else {
-			resultsInfo.textContent = `Game Over! COMPUTER wins ${computerScore} against ${playerScore}`;
-		}
-		return true;
+	if (playerScore > computerScore) {
+		alert(`Game Over! PLAYER wins ${playerScore} against ${computerScore}`);
+	} else {
+		alert(`Game Over! COMPUTER wins ${computerScore} against ${playerScore}`);
 	}
-	return false;
+	restartGame();
+}
+
+function playRound(btn) {
+	const computer = getComputerChoice();
+	const player = getPlayerChoice(btn);
+
+	if (computer === player) {
+		resultsInfo.textContent = `It's a tie`;
+		choiceInfo.textContent = `...`;
+	} else if (
+		(player === 'rock' && computer === 'scissors') ||
+		(player === 'paper' && computer === 'rock') ||
+		(player === 'scissors' && computer === 'paper')
+	) {
+		// player wins
+		playerScore++;
+		playerScoreDisplay.textContent = `Score: ${playerScore}`;
+		resultsInfo.textContent = 'Player scores!';
+		choiceInfo.textContent = `${player.toUpperCase()} beats ${computer.toUpperCase()}`;
+	} else {
+		// computer wins
+		computerScore++;
+		computerScoreDisplay.textContent = `Score: ${computerScore}`;
+		resultsInfo.textContent = 'Computer scores!';
+		choiceInfo.textContent = `${computer.toUpperCase()} beats ${player.toUpperCase()}`;
+	}
+
+	// check if game over after all updates are visible for the players
+	if (playerScore === 5 || computerScore === 5) {
+		// delay to make all updates visible
+		setTimeout(() => gameOver(), 100);
+	}
+}
+
+function restartGame() {
+	// restore to original state
+	playerChoiceDisplay.textContent = playerChoiceDisplayOriginal;
+	computerChoiceDisplay.textContent = computerChoiceDisplayOriginal;
+	playerScoreDisplay.textContent = playerScoreDisplayOriginal;
+	computerScoreDisplay.textContent = computerScoreDisplayOriginal;
+	resultsInfo.textContent = resultsInfoOriginal;
+	choiceInfo.textContent = choiceInfoOriginal;
+	playerScore = 0;
+	computerScore = 0;
 }
 
 function getPlayerChoice(btn) {
@@ -72,16 +114,12 @@ function getPlayerChoice(btn) {
 }
 
 function getComputerChoice() {
-	const num = Math.random().toPrecision(2);
 	let choice;
+	const choicesArray = ['rock', 'paper', 'scissors'];
+	// rounded down number between 0 (inclusive) and 3 (exclusive) = [0, 1, 2]
+	const index = Math.floor(Math.random() * 3);
 
-	if (num < 0.33) {
-		choice = 'rock';
-	} else if (num <= 0.66) {
-		choice = 'paper';
-	} else {
-		choice = 'scissors';
-	}
+	choice = choicesArray[index];
 	computerChoiceDisplay.textContent = getSymbol(choice);
 	return choice;
 }
@@ -102,28 +140,4 @@ function getSymbol(choice) {
 			break;
 	}
 	return symbol;
-}
-
-function playRound(btn) {
-	const computer = getComputerChoice();
-	const player = getPlayerChoice(btn);
-
-	if (computer === player) {
-		resultsInfo.textContent = `It's a tie`;
-		choiceInfo.textContent = `...`;
-	} else if (
-		(player === 'rock' && computer === 'scissors') ||
-		(player === 'paper' && computer === 'rock') ||
-		(player === 'scissors' && computer === 'paper')
-	) {
-		playerScore++;
-		playerScoreDisplay.textContent = `Score: ${playerScore}`;
-		resultsInfo.textContent = 'Player scores!';
-		choiceInfo.textContent = `${player.toUpperCase()} beats ${computer.toUpperCase()}`;
-	} else {
-		computerScore++;
-		computerScoreDisplay.textContent = `Score: ${computerScore}`;
-		resultsInfo.textContent = 'Computer scores!';
-		choiceInfo.textContent = `${computer.toUpperCase()} beats ${player.toUpperCase()}`;
-	}
 }
