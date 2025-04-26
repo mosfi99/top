@@ -1,22 +1,55 @@
 // https://www.theodinproject.com/lessons/foundations-etch-a-sketch#project-solution
 
-const container = document.querySelector('.main-container');
+// CONSTS
+const GRID_WIDTH = 500;
+const DEFAULT_SQUARES = 25;
 
-// 16x16 grid of square divs
-// need 16 lines, of 16 squares length
-for (let i = 0; i < 16; i++) {
-	for (let j = 0; j < 16; j++) {
-		const square = document.createElement('div');
-		square.classList.add('square');
-		container.appendChild(square);
+// DOM elements
+const container = document.querySelector('.grid-container');
+const rangeInput = document.querySelector('#rangeSquares');
+const rangeValueDisplay = document.querySelectorAll('.range-value');
+
+// GRID functions
+// n*n grid of square divs
+// need n lines, of n squares length
+function createGrid(size) {
+	for (let i = 0; i < size; i++) {
+		for (let j = 0; j < size; j++) {
+			const square = document.createElement('div');
+
+			square.classList.add('square');
+			square.style.width = `${GRID_WIDTH / size}px`;
+			square.style.height = `${GRID_WIDTH / size}px`;
+
+			rangeValueDisplay.forEach((value) => (value.textContent = size));
+			container.appendChild(square);
+		}
 	}
 }
 
-// paint
-const squares = document.querySelectorAll('.square');
-
-squares.forEach((sqr) => {
-	sqr.addEventListener('mouseenter', () => {
-		sqr.style.backgroundColor = 'white';
-	});
+// EVENTS listeners
+// range input to set new grid every time input changes
+rangeInput.addEventListener('input', () => {
+	let currentSize = rangeInput.value;
+	container.textContent = '';
+	createGrid(currentSize);
+	draw();
 });
+
+// draw
+function draw() {
+	const squares = document.querySelectorAll('.square');
+	squares.forEach((sqr) => {
+		sqr.addEventListener('mouseenter', () => {
+			sqr.style.backgroundColor = 'white';
+		});
+	});
+}
+
+function init() {
+	createGrid(DEFAULT_SQUARES);
+	draw();
+}
+
+// init
+init();
