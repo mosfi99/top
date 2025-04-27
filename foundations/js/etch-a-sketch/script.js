@@ -40,12 +40,31 @@ function updateRangeDisplay(size) {
 }
 
 // draw
+// 1. when mouse is pressed set the color for current square element,
+// 2. then drag to the next elements and continue setting the color
+// 3. when releasing mouse stop setting the color.
+// Note: need to prevent default drag behavior.
 function draw(squares) {
+	let isDrawing = false; // track whether the mouse button is pressed
+
+	// prevent drag
+	container.addEventListener('mousedown', (e) => e.preventDefault());
+
 	squares.forEach((sqr) => {
-		sqr.addEventListener('mouseover', () => {
+		// 1. set color only for current square
+		sqr.addEventListener('mousedown', () => {
+			isDrawing = true;
 			sqr.style.backgroundColor = setColor();
 		});
+
+		// 2. while pressing, continue setting the color for next square
+		sqr.addEventListener('mouseover', () => {
+			if (isDrawing) sqr.style.backgroundColor = setColor();
+		});
 	});
+
+	// stop setting color
+	document.addEventListener('mouseup', () => (isDrawing = false));
 }
 
 // choose color
