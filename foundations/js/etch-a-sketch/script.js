@@ -3,6 +3,7 @@
 // CONSTS
 const GRID_WIDTH = 500;
 const DEFAULT_SQUARES = 25;
+const WHITE_COLOR = '#FFFFFF';
 
 // DOM elements
 const container = document.querySelector('.grid-container');
@@ -52,35 +53,43 @@ function draw(squares) {
 	let isDrawing = false; // track whether the mouse button is pressed
 	let isErasing = false; // track when erase btn clicked
 
-	// prevent drag
+	// prevent default drag behavior on the grid container
 	container.addEventListener('mousedown', (e) => e.preventDefault());
 
 	// draw btn clicked
 	drawBtn.addEventListener('click', () => {
 		isErasing = false;
+		toggleButtonState(drawBtn, eraseBtn);
 	});
 
 	// erase btn clicked
 	eraseBtn.addEventListener('click', () => {
 		isErasing = true;
+		toggleButtonState(eraseBtn, drawBtn);
 	});
 
 	squares.forEach((sqr) => {
 		// 1. set color only for current square
 		sqr.addEventListener('mousedown', () => {
 			isDrawing = true;
-			sqr.style.backgroundColor = isErasing ? '#FFFFFF' : setColor();
+			sqr.style.backgroundColor = isErasing ? WHITE_COLOR : setColor();
 		});
 
 		// 2. while pressing, continue setting the color for next square
 		sqr.addEventListener('mouseover', () => {
 			if (isDrawing)
-				sqr.style.backgroundColor = isErasing ? '#FFFFFF' : setColor();
+				sqr.style.backgroundColor = isErasing ? WHITE_COLOR : setColor();
 		});
 	});
 
-	// stop setting color
+	// 3. stop setting color
 	document.addEventListener('mouseup', () => (isDrawing = false));
+}
+
+// button selected
+function toggleButtonState(buttonToActivate, buttonToDeactivate) {
+	buttonToActivate.classList.add('selected');
+	buttonToDeactivate.classList.remove('selected');
 }
 
 // choose color
@@ -93,6 +102,8 @@ function clearContainer() {
 	const currentSize = rangeInput.value;
 	container.textContent = '';
 	const squares = createGrid(currentSize);
+	drawBtn.classList.remove('selected');
+	eraseBtn.classList.remove('selected');
 	draw(squares);
 }
 
