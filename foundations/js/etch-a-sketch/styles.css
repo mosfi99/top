@@ -6,20 +6,105 @@
 	margin: 0;
 }
 
-body {
-	background-color: rgb(31, 27, 66);
+/* Color Palette */
+:root {
+	--primary-color: rgba(67, 42, 124, 0.603); /* Selected button and header */
+	--hover-color: rgba(45, 86, 161, 0.418); /* Button hover */
+	--border-color: rgba(2, 0, 0, 0.589); /* Square border */
+	--background-color: rgb(255, 255, 255); /* Body background */
+	--text-color: rgb(0, 0, 0); /* Default text color */
+	--square-border-color: rgba(148, 148, 148, 0.2);
 }
 
-.main-container {
+* {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+header {
+	background-color: var(--primary-color);
+	color: var(--background-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+	margin-bottom: 40px;
+}
+
+h1 {
+	font-size: 50px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+}
+
+.selection {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	flex: 0 0 202px;
+	align-self: stretch;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.color-container {
+	text-align: center;
+	width: 200px;
+	padding: 10px;
+	border-radius: 8px;
+	border: 1px solid var(--border-color);
+}
+
+.color-container p {
+	margin-bottom: 10px;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	border-radius: 8px;
+	border: 1px solid var(--border-color);
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+button:hover {
+	background-color: var(--hover-color);
+}
+
+.input-container {
+	width: 200px;
+	padding: 0px 20px;
+}
+
+.range-text {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.range {
+	width: 100%;
+}
+
+.grid-container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
-	width: 480px;
-	margin: 100px auto;
+	flex: 0 0 502px;
+	border: 1px solid var(--border-color);
 }
 
 .square {
-	border: 1px solid rgba(148, 148, 148, 0.25);
-	width: 30px;
-	height: 30px;
+	border: 1px solid var(--square-border-color);
+}
+
+.selected {
+	background-color: var(--primary-color);
 }
