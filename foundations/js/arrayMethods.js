@@ -103,3 +103,37 @@ function filterBetweenExclusive(arr, min, max) {
 function filterBetweenInclusive(arr, min, max) {
 	return arr.filter((num) => num >= min && num <= max);
 }
+// MODIFY ARRAY, DO NOT CREATE A NEW ONE ========================================
+
+// Create a function that doubles each number in the array in-place
+function doubleNumbersInPlace(arr) {
+	// for (let i = 0; i < arr.length; i++) {
+	// 	arr[i] *= 2;
+	// }
+	arr.forEach((num, index) => (arr[index] = num * 2));
+}
+// let numbers = [1, 2, 3, 4];
+// doubleNumbersInPlace(numbers);
+// console.log(numbers); // Should output: [2, 4, 6, 8]
+
+// Create a function that removes the last element from an array in-place
+function removeLastElement(arr) {
+	arr.splice(arr.length - 1);
+}
+// let fruits = ['apple', 'banana', 'cherry', 'date'];
+// removeLastElement(fruits);
+// console.log(fruits); // Should output: ["apple", "banana", "cherry"]
+
+// Create a function that removes elements at specified indices array
+function removeAtIndices(arr, indices) {
+	// Hint: Start removing from the end to avoid shifting issues
+	indices
+		.sort()
+		.reverse()
+		.forEach((i) => arr.splice(i, 1));
+}
+// let letters = ['a', 'b', 'c', 'd', 'e', 'f'];
+// removeAtIndices(letters, [1, 4, 3]); // Remove elements at indices 1 and 3
+// console.log(letters); // Should output: ["a", "c", "f"]
+
+// continue with ex. 4
