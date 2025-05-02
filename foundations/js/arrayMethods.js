@@ -136,4 +136,61 @@ function removeAtIndices(arr, indices) {
 // removeAtIndices(letters, [1, 4, 3]); // Remove elements at indices 1 and 3
 // console.log(letters); // Should output: ["a", "c", "f"]
 
-// continue with ex. 4
+// Create a function that removes all even numbers from an array in-place
+function removeEvenNumbers(arr) {
+	arr.forEach((value, index) => {
+		value % 2 === 0 ? arr.splice(index, 1) : arr;
+	});
+}
+// let numbers = [1, 2, 3, 4, 5, 6];
+// removeEvenNumbers(numbers);
+// console.log(numbers); // Should output: [1, 3, 5]
+
+// Create a function that removes all numbers greater than a value
+function removeGreaterThan(arr, value) {
+	// Your code here - remove all elements > value
+	arr.forEach((element, index) => {
+		element > value ? arr.splice(index, 1) : arr;
+	});
+}
+
+// let numbers = [5, 3, 8, 1, 10, 2];
+// removeGreaterThan(numbers, 5);
+// console.log(numbers); // Should output: [5, 3, 1, 2]
+
+// Create a function that removes all numbers less than a value (using a backward loop)
+function removeLessThan(arr, value) {
+	// Your code here - remove all elements < value
+	// Hint: Looping backward avoids the shifting problem
+	for (let i = arr.length - 1; i >= 0; i--) {
+		arr[i] < value ? arr.splice(i, 1) : arr;
+	}
+}
+
+// let numbers = [1, 5, 3, 8, 1, 2, 2];
+// removeLessThan(numbers, 3);
+// console.log(numbers); // Should output: [5, 3, 8]
+
+// Create a function that removes values outside an exclusive range (not including min and max)
+function removeOutsideRangeExclusive(arr, min, max) {
+	// Your code here - remove elements that are ≤ min OR ≥ max
+	for (let i = arr.length - 1; i >= 0; i--) {
+		arr[i] <= min || arr[i] >= max ? arr.splice(i, 1) : arr;
+	}
+}
+// let numbers = [5, 3, 8, 1, 10, 2];
+// removeOutsideRangeExclusive(numbers, 2, 8);
+// console.log(numbers); // Should output: [5, 3] (keeps values between 2 and 8, exclusive)
+
+// Write a function filterRange(arr, min, max) that gets an array arr, looks for elements with values:
+// higher or equal to min and
+// lower or equal to max and return a result as an array.
+
+function filterRange(arr, min, max) {
+	for (let i = arr.length - 1; i >= 0; i--) {
+		arr[i] >= min && arr[i] <= max ? arr : arr.splice(i, 1);
+	}
+}
+// let arr = [5, 3, 8, 1];
+// filterRange(arr, 1, 4);
+// console.log(arr); // [3, 1]
