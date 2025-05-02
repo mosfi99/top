@@ -182,15 +182,16 @@ function removeOutsideRangeExclusive(arr, min, max) {
 // removeOutsideRangeExclusive(numbers, 2, 8);
 // console.log(numbers); // Should output: [5, 3] (keeps values between 2 and 8, exclusive)
 
-// Write a function filterRange(arr, min, max) that gets an array arr, looks for elements with values:
-// higher or equal to min and
-// lower or equal to max and return a result as an array.
+// Write a function filterRangeInPlace(arr, min, max) that gets an array arr and removes from it all values except:
+// those that are between a and b.
+// The test is:
+//  min ≤ arr[i] ≤ max.
 
-function filterRange(arr, min, max) {
+function filterRangeInPlace(arr, min, max) {
 	for (let i = arr.length - 1; i >= 0; i--) {
 		arr[i] >= min && arr[i] <= max ? arr : arr.splice(i, 1);
 	}
 }
 // let arr = [5, 3, 8, 1];
-// filterRange(arr, 1, 4);
+// filterRangeInPlace(arr, 1, 4);
 // console.log(arr); // [3, 1]
