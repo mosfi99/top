@@ -193,3 +193,26 @@ function filterInclusive(arr, min, max) {
 // let arr = [5, 3, 8, 1];
 // filterInclusive(arr, 1, 4);
 // console.log(arr); // [3, 1]
+
+// SORT =============================================
+
+// let arr = [5, 2, 1, -10, 8];
+
+// arr.sort((a, b) => a - b); // increasing order
+// arr.sort((a, b) => b - a); // decreasing order
+
+// arr.sort().reverse(); // IS NOT THE BEST SORTING METHOD.
+// console.log(arr); // 8, 5, 2, 1, -10
+
+// We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
+let arr = ['HTML', 'JavaScript', 'CSS'];
+
+function copySorted(arr) {
+	let myArr = arr.slice(); // create a copy of the original array
+	return myArr.sort((a, b) => a.localeCompare(b)); // a.localeCompare(b) is the string comparison method
+}
+
+let sorted = copySorted(arr);
+
+console.log(sorted); // CSS, HTML, JavaScript
+console.log(arr); // HTML, JavaScript, CSS (no changes)
