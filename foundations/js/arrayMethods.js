@@ -20,21 +20,21 @@ function sum(array) {
 	return array
 		.filter((e) => e % 2 === 0)
 		.map((e) => e * 3)
-		.reduce((pre, next) => pre + next);
+		.reduce((pre, next) => pre + next, 0); // * initial value (0)
 }
+// * if the array has no even numbers, reduce will throw an error (since it’s called on an empty array), solution: provide an initial value.
 
 const myArray = sum(array);
 // console.log(myArray); // 36
 
-// MAP ==========================================================================
-
 // Convert a single word to have its first letter capitalized
 function capitalizeWord(word) {
-	return word.split('')[0].toUpperCase() + word.slice(1);
+	return word[0].toUpperCase() + word.slice(1);
 }
 // console.log(capitalizeWord('hello')); // Should output: "Hello"
 // console.log(capitalizeWord('javascript')); // Should output: "Javascript"
 
+// MAP ======================================================================
 // Use map to double each number in an array
 function doubleNumbers(numbers) {
 	return numbers.map((num) => num * 2);
@@ -138,60 +138,58 @@ function removeAtIndices(arr, indices) {
 
 // Create a function that removes all even numbers from an array in-place
 function removeEvenNumbers(arr) {
-	arr.forEach((value, index) => {
-		value % 2 === 0 ? arr.splice(index, 1) : arr;
-	});
+	for (let i = arr.length - 1; i >= 0; i--) {
+		if (arr[i] % 2 === 0) arr.splice(i, 1);
+	}
 }
 // let numbers = [1, 2, 3, 4, 5, 6];
 // removeEvenNumbers(numbers);
 // console.log(numbers); // Should output: [1, 3, 5]
 
-// Create a function that removes all numbers greater than a value
+// Create a function that removes all numbers greater or equal than a value
 function removeGreaterThan(arr, value) {
-	// Your code here - remove all elements > value
-	arr.forEach((element, index) => {
-		element > value ? arr.splice(index, 1) : arr;
-	});
+	for (let i = arr.length - 1; i >= 0; i--) {
+		if (arr[i] >= value) arr.splice(i, 1);
+	}
 }
-
-// let numbers = [5, 3, 8, 1, 10, 2];
+// let numbers = [5, 3, 20, 8, 1, 10, 10, 7, 2];
 // removeGreaterThan(numbers, 5);
-// console.log(numbers); // Should output: [5, 3, 1, 2]
+// console.log(numbers); // Should output: [3, 1, 2]
 
 // Create a function that removes all numbers less than a value (using a backward loop)
 function removeLessThan(arr, value) {
 	// Your code here - remove all elements < value
 	// Hint: Looping backward avoids the shifting problem
 	for (let i = arr.length - 1; i >= 0; i--) {
-		arr[i] < value ? arr.splice(i, 1) : arr;
+		if (arr[i] < value) arr.splice(i, 1);
 	}
 }
-
 // let numbers = [1, 5, 3, 8, 1, 2, 2];
 // removeLessThan(numbers, 3);
 // console.log(numbers); // Should output: [5, 3, 8]
 
 // Create a function that removes values outside an exclusive range (not including min and max)
-function removeOutsideRangeExclusive(arr, min, max) {
+function filterExclusive(arr, min, max) {
 	// Your code here - remove elements that are ≤ min OR ≥ max
 	for (let i = arr.length - 1; i >= 0; i--) {
-		arr[i] <= min || arr[i] >= max ? arr.splice(i, 1) : arr;
+		if (arr[i] < min || arr[i] > max) {
+			arr.splice(i, 1);
+		}
 	}
 }
 // let numbers = [5, 3, 8, 1, 10, 2];
-// removeOutsideRangeExclusive(numbers, 2, 8);
+// filterExclusive(numbers, 2, 8);
 // console.log(numbers); // Should output: [5, 3] (keeps values between 2 and 8, exclusive)
 
-// Write a function filterRangeInPlace(arr, min, max) that gets an array arr and removes from it all values except:
-// those that are between a and b.
-// The test is:
-//  min ≤ arr[i] ≤ max.
-
-function filterRangeInPlace(arr, min, max) {
+// Write a function filterRangeInPlace(arr, min, max) that gets an array arr and removes from it all values except those that are between min and max.
+// Remove if outside [min, max]
+function filterInclusive(arr, min, max) {
 	for (let i = arr.length - 1; i >= 0; i--) {
-		arr[i] >= min && arr[i] <= max ? arr : arr.splice(i, 1);
+		if (arr[i] < min || arr[i] > max) {
+			arr.splice(i, 1);
+		}
 	}
 }
 // let arr = [5, 3, 8, 1];
-// filterRangeInPlace(arr, 1, 4);
+// filterInclusive(arr, 1, 4);
 // console.log(arr); // [3, 1]
