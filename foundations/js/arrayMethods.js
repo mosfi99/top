@@ -14,7 +14,7 @@ function sumOfTripledEvens(array) {
 	return sum;
 }
 
-const array = [1, 2, 3, 4, 5, 6];
+// const array = [1, 2, 3, 4, 5, 6];
 
 function sum(array) {
 	return array
@@ -24,7 +24,7 @@ function sum(array) {
 }
 // * if the array has no even numbers, reduce will throw an error (since it’s called on an empty array), solution: provide an initial value.
 
-const myArray = sum(array);
+// const myArray = sum(array);
 // console.log(myArray); // 36
 
 // Convert a single word to have its first letter capitalized
@@ -205,14 +205,151 @@ function filterInclusive(arr, min, max) {
 // console.log(arr); // 8, 5, 2, 1, -10
 
 // We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
-let arr = ['HTML', 'JavaScript', 'CSS'];
+// let arr = ['HTML', 'JavaScript', 'CSS'];
 
 function copySorted(arr) {
 	let myArr = arr.slice(); // create a copy of the original array
 	return myArr.sort((a, b) => a.localeCompare(b)); // a.localeCompare(b) is the string comparison method
 }
 
-let sorted = copySorted(arr);
+// let sorted = copySorted(arr);
+// console.log(sorted); // CSS, HTML, JavaScript
+// console.log(arr); // HTML, JavaScript, CSS (no changes)
 
-console.log(sorted); // CSS, HTML, JavaScript
-console.log(arr); // HTML, JavaScript, CSS (no changes)
+// OBJECTS =============================================
+
+// Map to names
+// let john = { name: 'John', age: 25 };
+// let pete = { name: 'Pete', age: 30 };
+// let mary = { name: 'Mary', age: 28 };
+
+// let users = [john, pete, mary];
+// let names = users.map((value) => value.name);
+// console.log(names); // John, Pete, Mary
+
+// Map to objects
+// let john = { name: 'John', surname: 'Smith', id: 1 };
+// let pete = { name: 'Pete', surname: 'Hunt', id: 2 };
+// let mary = { name: 'Mary', surname: 'Key', id: 3 };
+
+// let users = [john, pete, mary];
+
+// let usersMapped = users.map((value) => {
+// 	return { fullName: `${value.name} ${value.surname}`, id: value.id };
+// });
+
+// console.log(usersMapped[0].id); // 1
+// console.log(usersMapped[0].fullName); // John Smith
+// console.log(usersMapped);
+// usersMapped = [
+//   { fullName: "John Smith", id: 1 },
+//   { fullName: "Pete Hunt", id: 2 },
+//   { fullName: "Mary Key", id: 3 }
+// ]
+
+// Sort users by age
+// let john = { name: 'John', age: 25 };
+// let pete = { name: 'Pete', age: 30 };
+// let mary = { name: 'Mary', age: 28 };
+
+// let arr = [pete, john, mary];
+
+function sortByAge(users) {
+	users.sort((a, b) => a.age - b.age);
+}
+// sortByAge(arr);
+
+// // now: [john, mary, pete]
+// console.log(arr[0].name); // John
+// console.log(arr[1].name); // Mary
+// console.log(arr[2].name); // Pete
+
+// Shuffle an array
+// Fisher-Yates shuffle algorithm: useful for a game
+function shuffle(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const random = Math.floor(Math.random() * (i + 1));
+		// destructuring assignment
+		[array[i], array[random]] = [array[random], array[i]];
+	}
+}
+
+// let arr = [1, 2, 3];
+// shuffle(arr);
+// console.log(arr);
+// shuffle(arr);
+// console.log(arr);
+// shuffle(arr);
+// console.log(arr);
+
+// Get average age
+// let john = { name: 'John', age: 25 };
+// let pete = { name: 'Pete', age: 30 };
+// let mary = { name: 'Mary', age: 29 };
+// let arr = [john, pete, mary];
+
+function getAverageAge(array) {
+	let total = 0;
+	array.forEach((person) => (total += person.age));
+	return total / array.length;
+}
+// use reduce to get averages!! or a sum, product, or any accumulated result
+function getAverageAge(users) {
+	return users.reduce((total, user) => total + user.age, 0) / users.length;
+}
+// console.log(getAverageAge(arr)); // (25 + 30 + 29) / 3 = 28
+
+// Filter unique array members
+
+// The solution is only good for small arrays.
+// includes(str) compares each element against str, if there are 100 elements in result and no one matches str, then it will walk the whole result and do exactly 100 comparisons.
+
+function unique(arr) {
+	let uniques = [];
+	for (let str of arr) {
+		if (!uniques.includes(str)) {
+			uniques.push(str);
+		}
+	}
+	return uniques;
+}
+
+let strings = [
+	'Hare',
+	'Krishna',
+	'Hare',
+	'Krishna',
+	'Krishna',
+	'Krishna',
+	'Hare',
+	'Hare',
+	':-O',
+];
+// console.log(unique(strings)); // Hare, Krishna, :-O
+
+// Create keyed object from array
+let users = [
+	{ id: 'john', name: 'John Smith', age: 20 },
+	{ id: 'ann', name: 'Ann Smith', age: 24 },
+	{ id: 'pete', name: 'Pete Peterson', age: 31 },
+];
+
+function groupById(arr) {
+	return arr.reduce((obj, value) => {
+		obj[value.id] = value;
+		return obj;
+	}, {});
+}
+
+let usersById = groupById(users);
+// console.log(usersById);
+
+/*
+// after the call we should have:
+
+usersById = {
+  john: {id: 'john', name: "John Smith", age: 20},
+  ann: {id: 'ann', name: "Ann Smith", age: 24},
+  pete: {id: 'pete', name: "Pete Peterson", age: 31},
+}
+*/
