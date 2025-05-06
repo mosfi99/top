@@ -328,11 +328,11 @@ let strings = [
 // console.log(unique(strings)); // Hare, Krishna, :-O
 
 // Create keyed object from array
-let users = [
-	{ id: 'john', name: 'John Smith', age: 20 },
-	{ id: 'ann', name: 'Ann Smith', age: 24 },
-	{ id: 'pete', name: 'Pete Peterson', age: 31 },
-];
+// let users = [
+// 	{ id: 'john', name: 'John Smith', age: 20 },
+// 	{ id: 'ann', name: 'Ann Smith', age: 24 },
+// 	{ id: 'pete', name: 'Pete Peterson', age: 31 },
+// ];
 
 function groupById(arr) {
 	return arr.reduce((obj, value) => {
@@ -341,15 +341,82 @@ function groupById(arr) {
 	}, {});
 }
 
-let usersById = groupById(users);
+// let usersById = groupById(users);
 // console.log(usersById);
-
 /*
-// after the call we should have:
-
 usersById = {
   john: {id: 'john', name: "John Smith", age: 20},
   ann: {id: 'ann', name: "Ann Smith", age: 24},
   pete: {id: 'pete', name: "Pete Peterson", age: 31},
 }
 */
+
+// more practice on arrays, objects, and the map, reduce, and filter methods :D
+
+// Group users by age
+let users1 = [
+	{ id: 'john', name: 'John Smith', age: 20 },
+	{ id: 'ann', name: 'Ann Smith', age: 24 },
+	{ id: 'pete', name: 'Pete Peterson', age: 31 },
+	{ id: 'monica', name: 'Monica Lee', age: 31 },
+];
+
+function groupByAge(users) {
+	return users.reduce((obj, user) => {
+		obj[user.age] ? obj[user.age].push(user) : (obj[user.age] = [user]);
+		return obj;
+	}, {});
+}
+// let usersByAge = groupByAge(users1);
+// console.log(usersByAge);
+
+// Filter and map product data
+let products = [
+	{ id: 1, name: 'Laptop', price: 1200 },
+	{ id: 2, name: 'Mouse', price: 25 },
+	{ id: 3, name: 'Keyboard', price: 75 },
+	{ id: 4, name: 'Monitor', price: 300 },
+];
+
+// returns an array of product names whose price is less than or equal to maxPrice.
+function getAffordableProductNames(products, maxPrice) {
+	// const affordable = products.filter((p) => p.price <= maxPrice);
+	// return affordable.map((p) => p.name);
+	// or all in one line:
+	return products.filter((p) => p.price <= maxPrice).map((p) => p.name);
+}
+
+// FILTER FIRST, THEN OTHERS
+// First we filter, and then we map, otherwise map already removes the price and other properties
+// and when filter looks for price, it is not defined.
+
+// let result = getAffordableProductNames(products, 100);
+// console.log(result); // ["Mouse", "Keyboard"]
+
+// Count users by first letter of name
+let users2 = [
+	{ id: 'john', name: 'John Smith', age: 20 },
+	{ id: 'jane', name: 'Jane Doe', age: 22 },
+	{ id: 'alice', name: 'Alice Johnson', age: 24 },
+	{ id: 'bob', name: 'Bob Brown', age: 20 },
+	{ id: 'jim', name: 'Jim Beam', age: 30 },
+];
+
+function countUsersByInitial(users) {
+	return users.reduce((obj, u) => {
+		const letter = u.name[0];
+		obj[letter] ? (obj[letter] += 1) : (obj[letter] = 1);
+		// if (!obj[letter]) {
+		// 	obj[letter] = 1;
+		// } else obj[letter] += 1;
+		return obj;
+	}, {});
+}
+
+// let result = countUsersByInitial(users2);
+// console.log(result);
+// {
+//   J: 3,
+//   A: 1,
+//   B: 1
+// }
