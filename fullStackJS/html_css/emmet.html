@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- CLASSES AND IDS -->
+		<!-- element.class -->
+		<span class="purple"></span>
+		<!-- element#id -->
+		<p id="important"></p>
+		<!-- element.class.class.id -->
+		<div class="class-1 class-2" id="main-div"></div>
+		<!-- div is the default element -->
+		<!-- .super -->
+		<div class="super"></div>
+		<!-- #super-id -->
+		<div id="super-id"></div>
+		<!-- CHILD ELEMENTS -->
+		<!-- .parent>.child#first -->
+		<div class="parent">
+			<div class="child" id="first"></div>
+		</div>
+		<!-- ul.class>li.class*3 -->
+		<ul class="recent-notes">
+			<li class="note"></li>
+			<li class="note"></li>
+			<li class="note"></li>
+		</ul>
+		<!-- $ keeps track of the item num, each $ is a digit  -->
+		<!-- {text goes inside curly braces} -->
+		<!-- ul.parent>li.children*3{Child $} -->
+		<ul class="parent">
+			<li class="children">Child 1</li>
+			<li class="children">Child 2</li>
+			<li class="children">Child 3</li>
+		</ul>
+		<!-- works for classes or ids too -->
+		<!-- ul.parent>li.child-$*3{Child $} -->
+		<ul class="parent">
+			<li class="child-1">Child 1</li>
+			<li class="child-2">Child 2</li>
+			<li class="child-3">Child 3</li>
+		</ul>
+		<!-- SIBLINGS -->
+		<!-- header+main+footer -->
+		<header></header>
+		<main></main>
+		<footer></footer>
+	</body>
+</html>
